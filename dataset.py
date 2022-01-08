@@ -48,7 +48,7 @@ class CTCData(Dataset):
         image = io.imread(img_filepath)
             
         #except OSError:
-        image = np.random.randint(0, 255, size=(50, 100), dtype=np.uint8)
+        #image = np.random.randint(0, 255, size=(50, 100), dtype=np.uint8)
             
         if type(self.word_col) == int:
             word = self.word_df.iloc[idx, self.word_col]

@@ -56,7 +56,7 @@ class CTCData(Dataset):
             word = self.word_df[self.word_col].iloc[idx]
             
         sample = {'image': image, 'word': word}
-
+        print(sample.shape)
         if self.transform:
             sample = self.transform(sample)
 

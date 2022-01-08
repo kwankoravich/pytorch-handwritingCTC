@@ -43,7 +43,7 @@ class Rescale(object):
         f = max(fx, fy)
         
         new_size = (max(min(resize[0], int(h / f)), 1), max(min(resize[1], int(w / f * self.random_stretch)), 1))
-        
+        print(new_size)
         image = transform.resize(image, new_size, preserve_range=True, mode='constant', cval=255)
         if self.rotation != 0:
             rot = np.random.choice(np.arange(-self.rotation, self.rotation), 1)

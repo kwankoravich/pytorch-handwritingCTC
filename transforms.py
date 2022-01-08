@@ -62,9 +62,9 @@ class Rescale(object):
             print('h_pad: ' ,h_pad)
             
             
-            canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1], 3] = image            
+            canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1], 0:3] = image            
         else:
-            canvas[0:new_size[0], 0:new_size[1], 3] = image
+            canvas[0:new_size[0], 0:new_size[1], 0:3] = image
          
         # rotate adds extra column
         canvas = transform.rotate(canvas, -90, resize=True)[:, :-1]

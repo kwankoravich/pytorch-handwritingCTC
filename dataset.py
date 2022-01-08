@@ -40,9 +40,7 @@ class CTCData(Dataset):
     def __getitem__(self, idx):
         
         img_name = self.word_df.iloc[idx, 0]
-        folder_name = self.get_folder(img_name)
         img_filepath = os.path.join(self.root_dir,
-                                   folder_name,
                                    img_name)
         try:
             image = io.imread(img_filepath)
@@ -61,11 +59,4 @@ class CTCData(Dataset):
             sample = self.transform(sample)
 
         return sample
-    
-    def get_folder(self, im_nm):
-        
-        im_nm_split = im_nm.split('-')
-        start_folder = im_nm_split[0]
-        src_folder = '-'.join(im_nm_split[:2])
-        
-        return os.path.join(start_folder, src_folder)
+   

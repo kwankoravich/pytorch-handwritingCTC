@@ -43,7 +43,7 @@ class CTCData(Dataset):
         #print(idx)
         #print(img_name)
         img_filepath = os.path.join(self.root_dir,
-                                   img_name + '.jpg')
+                                   img_name)
         #try:
         image = io.imread(img_filepath)
             

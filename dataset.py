@@ -46,7 +46,7 @@ class CTCData(Dataset):
                                    img_name)
         #try:
         image = io.imread(img_filepath)
-            
+        print(image.shape)    
         #except OSError:
         #image = np.random.randint(0, 255, size=(50, 100), dtype=np.uint8)
             
@@ -56,7 +56,7 @@ class CTCData(Dataset):
             word = self.word_df[self.word_col].iloc[idx]
             
         sample = {'image': image, 'word': word}
-        print(sample.shape)
+   
         if self.transform:
             sample = self.transform(sample)
 

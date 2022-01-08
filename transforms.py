@@ -54,9 +54,13 @@ class Rescale(object):
         if self.random_pad:
             v_pad_max = self.output_size[0] - new_size[0] 
             h_pad_max = self.output_size[1] - new_size[1]
-            
+            print('v_pad_max: ' ,v_pad_max)
+            print('h_pad_max: ' ,h_pad_max)
             v_pad = int(np.random.choice(np.arange(0, v_pad_max + 1), 1))
             h_pad = int(np.random.choice(np.arange(0, h_pad_max + 1), 1))
+            print('v_pad: ' ,v_pad)
+            print('h_pad: ' ,h_pad)
+            
             
             canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1]] = image            
         else:

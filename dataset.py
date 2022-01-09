@@ -20,13 +20,14 @@ class CTCData(Dataset):
         """
         assert isinstance(word_col, (int, str))
         self.word_df = pd.read_csv(os.path.join(root_dir, csv_file))
-        self.word_df.head(10) 
+        self.word_df = self.word_df[:,word_col].astype(str)
        
             
         
         if get_char and char_dict is None:
             chars = []
             print(self.word_df.head(10))
+            self.word_df = self.word_df[:,word_col].astype(str)
             self.word_df.iloc[:, word_col].apply(lambda x: chars.extend(list(x)))
             print(chars)
             chars = sorted(list(set(chars)))

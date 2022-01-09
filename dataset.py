@@ -20,7 +20,7 @@ class CTCData(Dataset):
         """
         assert isinstance(word_col, (int, str))
         self.word_df = pd.read_csv(os.path.join(root_dir, csv_file))
-        
+        self.word_df.head(10) 
        
             
         

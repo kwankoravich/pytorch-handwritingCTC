@@ -10,7 +10,7 @@ class CTCData(Dataset):
     """Handwriting dataset Class."""
 
     def __init__(self, csv_file, root_dir, transform=None, get_char=True, char_dict=None,
-                 word_col=-1):
+                 word_col):
         """
         Args:
             csv_file (string): Path to the csv file with annotations.
@@ -20,14 +20,14 @@ class CTCData(Dataset):
         """
         assert isinstance(word_col, (int, str))
         self.word_df = pd.read_csv(os.path.join(root_dir, csv_file))
-        self.word_df = self.word_df.iloc[:,word_col].astype(str)
+        #self.word_df = self.word_df.iloc[:,word_col].astype(str)
        
             
         
         if get_char and char_dict is None:
             chars = []
             print(self.word_df.head(10))
-            self.word_df = self.word_df.iloc[:,word_col].astype(str)
+            #self.word_df = self.word_df.iloc[:,word_col].astype(str)
             self.word_df.iloc[:, word_col].apply(lambda x: chars.extend(list(x)))
             print(chars)
             chars = sorted(list(set(chars)))

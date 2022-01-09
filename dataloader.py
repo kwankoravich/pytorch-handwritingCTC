@@ -74,6 +74,7 @@ class CTCDataLoader(object):
         targets = torch.zeros(sum(lengths)).long()
         lengths = torch.tensor(lengths)
         for j, word in enumerate(words):
+            print(word)
             start = sum(lengths[:j])
             end = lengths[j]
             targets[start:start+end] = torch.tensor([self.ds.char_dict.get(letter) for letter in word]).long()

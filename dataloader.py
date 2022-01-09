@@ -70,7 +70,7 @@ class CTCDataLoader(object):
         images = torch.stack(images, 0)
     
         # Merge captions (from tuple of 1D tensor to 2D tensor).
-        lengths = [len(word) for word in words]
+        lengths = [len(str(word)) for word in words]
         targets = torch.zeros(sum(lengths)).long()
         lengths = torch.tensor(lengths)
         for j, word in enumerate(words):

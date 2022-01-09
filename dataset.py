@@ -21,9 +21,13 @@ class CTCData(Dataset):
         assert isinstance(word_col, (int, str))
         self.word_df = pd.read_csv(os.path.join(root_dir, csv_file))
         
+       
+            
+        
         if get_char and char_dict is None:
             chars = []
             self.word_df.iloc[:, word_col].apply(lambda x: chars.extend(list(x)))
+            print(chars)
             chars = sorted(list(set(chars)))
             self.char_dict = {c:i for i, c in enumerate(chars, 1)}
             print(self.char_dict)

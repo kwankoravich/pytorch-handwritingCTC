@@ -9,8 +9,7 @@ from torch.utils.data import Dataset
 class CTCData(Dataset):
     """Handwriting dataset Class."""
 
-    def __init__(self, csv_file, root_dir, transform=None, get_char=True, char_dict=None,
-                 word_col):
+    def __init__(self, csv_file, root_dir,word_col, transform=None, get_char=True, char_dict=None):
         """
         Args:
             csv_file (string): Path to the csv file with annotations.

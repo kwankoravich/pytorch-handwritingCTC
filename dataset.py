@@ -27,7 +27,7 @@ class CTCData(Dataset):
         if get_char and char_dict is None:
             chars = []
             print(self.word_df.head(10))
-            self.word_df.iloc[:, 2].apply(lambda x: chars.extend(list(x)))
+            self.word_df.iloc[:, word_col].apply(lambda x: chars.extend(list(x)))
             print(chars)
             chars = sorted(list(set(chars)))
             self.char_dict = {c:i for i, c in enumerate(chars, 1)}

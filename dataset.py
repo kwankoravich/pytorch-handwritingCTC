@@ -46,7 +46,7 @@ class CTCData(Dataset):
 
     def __getitem__(self, idx):
         
-        img_name = self.word_df.iloc[idx, 1]
+        img_name = self.word_df.iloc[idx, 0]
         #print(idx)
         print(img_name)
         img_filepath = os.path.join(self.root_dir,

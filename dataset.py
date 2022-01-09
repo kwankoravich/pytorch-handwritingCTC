@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 class CTCData(Dataset):
     """Handwriting dataset Class."""
 
-    def __init__(self, csv_file, root_dir,word_col, transform=None, get_char=True, char_dict=None):
+    def __init__(self, csv_file, root_dir, word_col, max_len, transform=None, get_char=True, char_dict=None):
         """
         Args:
             csv_file (string): Path to the csv file with annotations.
@@ -38,7 +38,8 @@ class CTCData(Dataset):
         self.root_dir = root_dir
         self.transform = transform
         self.word_col = word_col
-        self.max_len = self.word_df.iloc[:, word_col].apply(lambda x: len(x)).max() 
+        #self.max_len = self.word_df.iloc[:, word_col].apply(lambda x: len(x)).max() 
+        self.max_len = max_len
 
     def __len__(self):
         return len(self.word_df)

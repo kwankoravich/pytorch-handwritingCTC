@@ -264,9 +264,10 @@ class Learner(object):
             outs=self.model.best_path_decode(xb)
             for i in range(len(outs)):
                 start = sum(lens[:i])
-                print(start)
+                print('start : ',start)
                 end = lens[i].item()
-                print(end)
+                print('end : ',end)
+                print('yb : ',yb[start:start+end])
                 corr = ''.join([self.decode_map.get(letter.item()) for letter in yb[start:start+end]])
                 print(corr)
                 pred = ''.join([self.decode_map.get(letter) for letter in outs[i]])

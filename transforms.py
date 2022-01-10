@@ -61,11 +61,11 @@ class Rescale(object):
             print('v_pad: ' ,v_pad)
             print('h_pad: ' ,h_pad)
             
-            canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1]] = image
-            #canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1]] = image[:,:,1]    
+            #canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1]] = image
+            canvas[v_pad:v_pad + new_size[0], h_pad:h_pad + new_size[1]] = image[:,:,1]    
         else:
-            canvas[0:new_size[0], 0:new_size[1]] = image
-            #canvas[0:new_size[0], 0:new_size[1]] = image[:,:,1]
+            #canvas[0:new_size[0], 0:new_size[1]] = image
+            canvas[0:new_size[0], 0:new_size[1]] = image[:,:,1]
          
         # rotate adds extra column
         canvas = transform.rotate(canvas, -90, resize=True)[:, :-1]

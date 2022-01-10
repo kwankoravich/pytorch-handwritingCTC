@@ -264,9 +264,13 @@ class Learner(object):
             outs=self.model.best_path_decode(xb)
             for i in range(len(outs)):
                 start = sum(lens[:i])
+                print(start)
                 end = lens[i].item()
+                print(end)
                 corr = ''.join([self.decode_map.get(letter.item()) for letter in yb[start:start+end]])
+                print(corr)
                 pred = ''.join([self.decode_map.get(letter) for letter in outs[i]])
+                print(pred)
                 if show_img:
                     img = xb[i, :, :, :].permute(1,2,0).cpu().numpy()
                     img = rgb2grey(img)

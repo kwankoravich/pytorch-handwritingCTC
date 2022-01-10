@@ -77,10 +77,10 @@ class CTCDataLoader(object):
             print(word)
             start = sum(lengths[:j])
             end = lengths[j]
-            try:
-                targets[start:start+end] = torch.tensor([self.ds.char_dict.get(letter) for letter in word]).long()
-            except:
-                pass
+            #try:
+            targets[start:start+end] = torch.tensor([self.ds.char_dict.get(letter) for letter in word]).long()
+            #except:
+                #pass
             
         if self.device == 'cpu':
             dev = torch.device('cpu')

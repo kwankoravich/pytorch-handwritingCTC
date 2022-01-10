@@ -79,7 +79,7 @@ class CTCDataLoader(object):
             start = sum(lengths[:j])
             end = lengths[j]
             #try:
-            targets[start:start+end] = torch.tensor([self.ds.char_dict.get(letter) for letter in word]).long()
+            targets[start:start+end] = torch.tensor([self.ds.char_dict.get(letter) for letter in str(word)]).long()
             #except:
                 #pass
             
